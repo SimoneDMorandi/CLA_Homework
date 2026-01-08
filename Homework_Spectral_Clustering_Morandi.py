@@ -87,7 +87,7 @@ for i, (X, Y_true, name) in enumerate(dataset):
     labels, eigval, U = spectral_clustering(X, k,
                                             n_neighbors=n_neighbors[i], # If None, fully connected graph.
                                             sigma=sigma[i],
-                                            Norm=True, # Normalized (True) or un-normalized (False) graph Laplacian.
+                                            Norm=False, # Normalized (True) or un-normalized (False) graph Laplacian.
                                             random_state = random_state)
     axes[i].scatter(X[:, 0], X[:, 1], c=labels, s=20, cmap="viridis")
     axes[i].set_title(f"Spectral clustering - {name}")
