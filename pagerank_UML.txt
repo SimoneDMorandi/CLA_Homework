@@ -1,0 +1,36 @@
+@startuml
+
+
+skinparam backgroundColor #1b192e
+skinparam activityBorderColor #1c3599
+skinparam activityBackgroundColor #E0F7FA
+skinparam activityDiamondBackgroundColor #a400ff
+skinparam activityDiamondBorderColor #E65100
+skinparam arrowColor white
+skinparam startDotColor white
+
+
+-START
+
+if (IS "A" SPARSE?) then (<color:white>YES)
+  :NORMALIZATION;
+else (<color:white>NO)
+  :NORMALIZATION;
+endif
+
+
+repeat
+:POWER METHOD;
+
+if (m ≠ 0?) then (<color:white>YES)
+  :r_new  = (1 - m) * (A @ r)
+             + m*s  
+             + (1-m) * dangling_mass * s;
+else (<color:white>NO)
+  :r_new = A @ r;
+endif
+repeat while (||r_new - r|| < tol?) is (<color:white>NO) not (<color:white>YES)
+
+
+-END
+@enduml

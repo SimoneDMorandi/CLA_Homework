@@ -1,0 +1,27 @@
+@startuml
+
+
+skinparam backgroundColor #1b192e
+skinparam activityBorderColor #1c3599
+skinparam activityBackgroundColor #E0F7FA
+skinparam activityDiamondBackgroundColor #a400ff
+skinparam activityDiamondBorderColor #E65100
+skinparam arrowColor white
+skinparam startDotColor white
+-START
+
+:Input n;
+
+if (n == 1?) then (<color:white>YES)
+    :L_prev=[[1, -1]‎
+                 [-1, 1]];
+    -RETURN L_prev
+    kill
+else (<color:white>NO)
+    :CALL laplacian_hypercube(n-1);
+    :ASSEMBLE
+    L = [[L_prev + I, -I]  
+            [-I, L_prev + I]];
+    :Return L;
+    kill
+@enduml

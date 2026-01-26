@@ -1,0 +1,32 @@
+@startuml
+
+
+skinparam backgroundColor #1b192e
+skinparam activityBorderColor #1c3599
+skinparam activityBackgroundColor #E0F7FA
+skinparam activityDiamondBackgroundColor #a400ff
+skinparam activityDiamondBorderColor #E65100
+skinparam arrowColor white
+skinparam startDotColor white
+
+
+-START
+
+if (NUMBER OF NEIGHBORS?) then (<color:white>YES)
+  :<size:14>σ</size>-NEIGHBORHOOD GRAPH;
+else (<color:white>NO)
+  :FULLY CONNECTED GRAPH;
+endif
+
+if (NORMALIZED L?) then (<color:white>YES)
+-L
+else (<color:white>NO)
+-L
+endif
+-eigh(L)
+-U
+-Kmeans on U
+
+
+-END
+@enduml
